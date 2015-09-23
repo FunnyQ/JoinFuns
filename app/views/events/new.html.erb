@@ -84,10 +84,9 @@
       <div class="info-box">
         <label for="event-title2">主題圖片</label>
         <span>
-          <!-- <input type="text" id="event-title2"> -->
-          <label for="event_<%= :cover %>">上傳圖片
-            <%= f.file_field :cover%>
-          </label>
+            <%= f.label "上傳圖片" , for: "event_cover" , id: "file-btn" %>
+            <%= f.file_field :cover , class: "file"%>
+
           <!-- <a href="" class="select-file">選取檔案</a> -->
         </span>
       </div>
@@ -217,8 +216,6 @@
           $("#event_prices_attributes_0_price").val("");
         }
       });
-
-
 
     });
   </script>
