@@ -86,6 +86,10 @@
 
     })
 
+    $('#combine_keyword').focus(function(){
+      $('#combine_keyword').removeAttr('placeholder');
+    });
+
     //$(document).ready(JoinFuns.initialMap());
     $(document).ready(JoinFuns.initMaterialSelect());
     $(document).ready(new JoinFuns.FilterPanel);
