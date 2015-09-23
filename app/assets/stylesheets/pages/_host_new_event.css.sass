@@ -1,11 +1,17 @@
-.new-event-outter
+.events-new
   +background-size(cover)
-  height: $w-desktop + $w-mobile
+  height: 100%
   background-image: asset-url('event-new-background.png')
   background-position: center
+
+// .new-event-outter
+//   +background-size(cover)
+//   // height: 100%
+//   background-image: asset-url('event-new-background.png')
+//   background-position: center
 .bk-color
-  background-color: $black-op50
-  height: 100%
+  // background-color: $black-op50
+  // height: 100%
   .new-event-wrapper
     position: relative
     width: $w-desktop
@@ -144,28 +150,37 @@
         //     top: 0  // init i pos
         //     right: 0 // init i pos
 
+      .time
+        +border-radius(0)
+        border: none
+        +span(6)
+        display: block
+        padding: .2em
+        margin-top: 0
+        .inner-wrapper
+          +border-radius(6px)
+          border: 1px solid $silver
+          input
+            +reset-box-model
+            padding-left: 1em
+            &:focus
+              outline: none
+              +box-shadow(none) //for safari
       .info-box
         +border-radius(6px)
         border: 1px solid $silver
         margin: 1em 0
 
         +clearfix
-        &.time
-          +border-radius(0)
-          border: none
-          +span(6)
-          display: block
-          padding: .2em
-          margin-top: 0
-          .inner-wrapper
-            +border-radius(6px)
-            border: 1px solid $silver
-            input
-              +reset-box-model
-              padding-left: 1em
-              &:focus
-                outline: none
-                +box-shadow(none) //for safari
+        &:hover,
+        &:focus,
+        &.actived
+          border: 1px solid $yellow
+          label
+            color: $yellow
+            border-right: 1px solid $yellow
+          input[type="text"]
+            color: $yellow
         label
           float: left
           padding: 0 1em
@@ -199,16 +214,6 @@
               color: $black
             input[type="file"]
               display: none
-
-
-
-        &.actived
-          border: 1px solid $yellow
-          label
-            color: $yellow
-            border-right: 1px solid $yellow
-          input[type="text"]
-            color: $yellow
 
 
 
