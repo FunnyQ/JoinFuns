@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921145911) do
+ActiveRecord::Schema.define(version: 20150922154113) do
 
   create_table "collects", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20150921145911) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.datetime "created_at",                                                  null: false
-    t.datetime "updated_at",                                                  null: false
+    t.datetime "created_at",                                                             null: false
+    t.datetime "updated_at",                                                             null: false
     t.string   "title",              limit: 255
     t.string   "hoster",             limit: 255
     t.string   "address",            limit: 255
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20150921145911) do
     t.text     "description",        limit: 65535
     t.integer  "price",              limit: 4
     t.integer  "category_cd",        limit: 4
-    t.decimal  "latitude",                         precision: 10
-    t.decimal  "longitude",                        precision: 10
+    t.decimal  "latitude",                         precision: 20, scale: 10
+    t.decimal  "longitude",                        precision: 20, scale: 10
     t.string   "organizer",          limit: 255
     t.string   "website",            limit: 255
     t.string   "email",              limit: 255
     t.string   "type_cd",            limit: 255
-    t.integer  "comments_count",     limit: 4,                    default: 0
-    t.integer  "impressions_count",  limit: 4,                    default: 0
+    t.integer  "comments_count",     limit: 4,                               default: 0
+    t.integer  "impressions_count",  limit: 4,                               default: 0
     t.integer  "user_id",            limit: 4
     t.decimal  "budget",                           precision: 10
     t.decimal  "showtime",                         precision: 10

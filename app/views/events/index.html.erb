@@ -13,7 +13,7 @@
 <%= content_for :handwrite_js do %>
   <script>
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      handler.buildMap({ provider: { disableDefaultUI: true }, internal: {id: 'map'}}, function(){
 
       urllat = getURLParameter('latitude');
       urllng = getURLParameter('longitude');
@@ -81,7 +81,14 @@
         google.maps.event.addListener(marker.serviceObject, 'click', onMarkerClick(marker, event));
       }
 
+
+
+
     })
+
+    $('#combine_keyword').focus(function(){
+      $('#combine_keyword').removeAttr('placeholder');
+    });
 
     //$(document).ready(JoinFuns.initialMap());
     $(document).ready(JoinFuns.initMaterialSelect());

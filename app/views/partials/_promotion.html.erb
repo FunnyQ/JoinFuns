@@ -71,7 +71,7 @@
           <label for="promo-title7">宣傳預算</label>
           <span>
            <!--  <input type="text" id="promo-title7" placeholder="請輸入您的宣傳預算"> -->
-           <%= f.text_field :budget %>
+           <%= f.text_field :budget, :value => 0  %>
           </span>
         </div>
       </div>
@@ -82,14 +82,14 @@
       <span class="promo-time">曝光時間</span>
       <span class="check-wrapper">
        <!--  <input type="radio" name="second" id="second-0"> -->
-        <%= f.radio_button :showtime,"0"%>
+        <%= f.radio_button :showtime,"0", :checked => "checked"%>
         <%= f.label :showtime, '0秒',:value => '0' %>
-        <%= f.radio_button :showtime,"3"%>
-        <%= f.label :showtime, '3秒',:value => '3' %>
+        <%= f.radio_button :showtime,"2"%>
+        <%= f.label :showtime, '2秒',:value => '2' %>
         <%= f.radio_button :showtime,"5"%>
         <%= f.label :showtime, '5秒',:value => '5' %>
-        <%= f.radio_button :showtime,"10"%>
-        <%= f.label :showtime, '10秒',:value => '10' %>
+        <%= f.radio_button :showtime,"15"%>
+        <%= f.label :showtime, '15秒',:value => '15' %>
         <%= f.radio_button :showtime,"30"%>
         <%= f.label :showtime, '30秒',:value => '30' %>
         <%= f.radio_button :showtime,"60"%>
@@ -110,8 +110,8 @@
     <div class="content-wrapper">
       <div class="inner-wrapper">
         <span class="timing">單次DM限制曝光時間：<span>0秒</span></span>
-        <span class="charge">單次曝光費用：<span>1元/次</span></span>
-        <span class="remaining">目前預算可曝光次數：<span>20,000</span> /次</span>
+        <span class="charge">單次曝光費用：<span>0</span>元/次</span>
+        <span class="remaining">目前預算可曝光次數：<span>0</span> /次</span>
       </div>
 
     </div>
@@ -147,18 +147,52 @@
 $('.main-function-bar-wrapper').hide();
 
 function displaySecs() {
+
   var second = $("input:checked").val();
-  $( ".timing span" ).text(second);
+  $( ".timing span" ).text(second+"秒");
+
+}
+
+function displayCost() {
+  var second = $("input:checked").val();
+  switch (second) {
+    case "0":
+        cost = "2";
+        break;
+    case "2":
+        cost = "3";
+        break;
+    case "5":
+        cost = "5";
+        break;
+    case "15":
+        cost = "10";
+        break;
+    case "30":
+        cost = "15";
+        break;
+    case "60":
+        cost = "25";
+        break;
+  }
+  $(".charge span").text(cost);
 }
 
 function displayTimes(){
 
-  var budget = $("#event_budget").val();
-  var per = 1;
+  var budget = parseInt($("#event_budget").val());
+  var per = parseInt($(".charge span").text());
   $(".remaining span").text(budget/per);
 }
 
-$( "input" ).change( displaySecs );
+function onchange(){
+  displaySecs();
+  displayCost();
+  displayTimes();
+}
+
+$( "input" ).change( onchange );
+
 $( "#event_budget" ).keyup(displayTimes);
 
 $("#free-promo").change(function() {
@@ -167,7 +201,7 @@ $("#free-promo").change(function() {
       $(".border-wrapper").hide();
       $(".select-wrapper").hide();
       $(".content-wrapper").hide();
-      $("#event_budget").val("");
+      $("#event_budget").val("0");
 
     }
     else{
