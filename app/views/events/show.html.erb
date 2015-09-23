@@ -12,7 +12,7 @@
 <div class="dm-page-wrapper">
 <!-- navigation path -->
   <div class="dm-page-path">
-    <span>頁面路徑 / <%= link_to @event.user.name,host_path(@event.user.id) %> / <%=@event.title%> </span>
+    <span>頁面路徑 /  <%= link_to @event.user.name,host_path(@event.user.id) if @event.user.present? %> / <%=@event.title%> </span>
   </div>
   <div class="page-promotion">
     <!-- page poster -->
@@ -35,10 +35,10 @@
           <span class="times">活動場次：</span><span>活動只有一場次</span>
         </li>
         <li>
-          <span class="organizer">主辦單位：</span><span><%= @event.user.name %></span>
+          <span class="organizer">主辦單位：</span><span><%= @event.user.try(:name) %></span>
         </li>
         <li>
-          <span class="sponsor">主辦人：</span><span><%= @event.user.name %></span>
+          <span class="sponsor">主辦人：</span><span><%= @event.user.try(:name) %></span>
         </li>
         <li>
           <span class="address">地址：</span><span><%= @event.address %></span>
@@ -110,7 +110,7 @@
   <div class="page-secondary">
     <div class="page-editor">
       <div class="ck-editor">
-        <%= @event.description.html_safe %>
+        <%= @event.try(:description).try(:html_safe) %>
       </div>
       <div class="leaveword">
         <span>留言：</span>
