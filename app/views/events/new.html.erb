@@ -64,8 +64,6 @@
   <!-- event input 1st -->
 
     <!-- <form class="event-info"> -->
-  <!-- drop selection -->
-  <!-- #TODO -->
 
       <div class="section-wrapper">
         <div class="drop-section-wrapper">
@@ -74,17 +72,15 @@
           <!-- </select> -->
         </div>
       </div>
-      <div class="info-box actived">
+      <div class="info-box">
         <label for="event-title1">活動主題</label>
         <span> <%= f.text_field :title %></span>
       </div>
       <div class="info-box">
         <label for="event-title2">主題圖片</label>
-        <span>
+        <span data-behavior='file-path-container'>
             <%= f.label "上傳圖片" , for: "event_cover" , id: "file-btn" %>
             <%= f.file_field :cover , class: "file"%>
-
-          <!-- <a href="" class="select-file">選取檔案</a> -->
         </span>
       </div>
       <div class="info-box">
@@ -170,6 +166,12 @@
 <%= content_for :handwrite_js do %>
   <script>
 
+    $(document).ready(function() {
+      $('.info-box .file').on('input', function(){
+        console.log('this');
+      });
+    });
+
 
     $(document).ready(function() {
       $.ajax({
@@ -177,7 +179,6 @@
         type: 'GET',
         dataType: 'json',
         success: function(Jdata) {
-          console.log(Jdata);
           $('#event_address').val(Jdata.results[0].address_components[4].short_name + Jdata.results[0].address_components[3].short_name + Jdata.results[0].address_components[1].short_name);
 
         },
@@ -213,9 +214,6 @@
           $("#event_prices_attributes_0_price").val("");
         }
       });
-
-
-
     });
   </script>
 <% end %>
