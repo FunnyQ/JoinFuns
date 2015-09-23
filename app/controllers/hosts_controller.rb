@@ -1,4 +1,5 @@
 class HostsController < ApplicationController
+  layout 'hosts'
 
   def show
 

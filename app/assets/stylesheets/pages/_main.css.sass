@@ -170,6 +170,8 @@
   bottom: 27px
   z-index: index($elements, shorten-dm)
   overflow-y: auto
+  [data-behavior="close-btn"]
+    display: none
   .notifier-unit
     +clearfix
     position: relative
@@ -180,6 +182,15 @@
     +box-shadow(0 0 5px $black-op50)
     &:hover
       +box-shadow(0 0 8px $black-op80)
+      [data-behavior="close-btn"]
+        display: block
+        padding: 3px
+        width: 19px
+        height: 19px
+        background-color: $yellow
+        +box-shadow(0 0 3px $black)
+        color: $black
+        +border-radius(50%)
   .shorten-close-btn
     position: absolute
     top: 10px
