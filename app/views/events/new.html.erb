@@ -115,7 +115,7 @@
       </div>
 
       <div class="price-option">
-        <span><label for="event-title5">活動價格</label></span>
+        <span><label for="event-title5">活動價格</label></br>(最多三組價格)</span>
           <%= f.fields_for :prices do |price| %>
         <!-- <div class="add"><i class="material-icons">add</i></div> -->
         <span class="add-option" >
@@ -124,7 +124,9 @@
         <% end %>
 
 
-        <span>最多三組價格</span>
+        <input type="checkbox" name="free-event" id="free-event">
+        <label for="free-event">這是免費活動</label>
+
       </div>
 
       <div class="info-box">
@@ -204,7 +206,17 @@
         $('.event-form').show();
       });
 
+      $("#free-event").change(function() {
+        if(this.checked) {
 
+          $("#event_prices_attributes_0_price").val("0");
+
+        }
+        else{
+
+          $("#event_prices_attributes_0_price").val("");
+        }
+      });
 
 
 

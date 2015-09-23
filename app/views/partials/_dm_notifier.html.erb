@@ -1,7 +1,7 @@
 
 <div class="dm-notifier-wrapper" data-behavior="notifiers-wrapper">
   <% @events.each do |x| %>
-    <div class="notifier-unit trans-03s" data-behavior="notifier"
+    <div class="notifier-unit trans-03s" data-behavior="notifier" id="event-<%=x.id%>" data-category = "<%=x.category_cd%>"
    onclick="handler.getMap().panTo({lat:<%=x.latitude%>,lng:<%=x.longitude%>})";>
 
       <!-- cover   actived trans-03s-->
