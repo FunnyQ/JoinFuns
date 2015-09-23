@@ -120,11 +120,17 @@
   .filter-submit-btn
     width: 100%
     margin-top: 2em
+    margin-bottom: 2em
+    text-align: center
     button
-      width: 100%
-      height: $submit-btn-height
-      line-height: $submit-btn-height
-      background-color: darken($yellow, 10)
+      +border-radius(5px)
+      width: 94%
+      height: $submit-btn-height + $submit-btn-height
+      line-height: 1.2em
+      background-color: darken($yellow, 7)
+      font-size: 1.2em
+      .en
+        font-size: 1.7em
 
 
 
