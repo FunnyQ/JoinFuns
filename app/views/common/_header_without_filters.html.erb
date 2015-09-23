@@ -1,0 +1,26 @@
+<!-- header -->
+<nav class="main-navibar">
+  <%= link_to events_path, class: 'logo-wrapper', :'data-no-turbolink' => true do%>
+    <%= image_tag 'main-logo-white@2x.png' %>
+  <% end %>
+
+  <div class="main-menu">
+    <ul>
+      <li>
+        <%= link_to subjects_path, class: "create-btn" do %>
+          <i class="material-icons">bookmark</i>
+          <span>Subject | 投標</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_event_path, class: "create-btn" do %>
+          <i class="material-icons">add_box</i>
+          <span>Create New | 創建</span>
+        <% end %>
+      </li>
+      <li class='user-menu-trigger'>
+        <%= render partial: "common/#{get_current_user_class}_menu_trigger" %>
+      </li>
+    </ul>
+  </div>
+</nav>
