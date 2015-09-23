@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   layout :setting_layout
   impressionist :actions=>[:show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
 
@@ -25,6 +25,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    gon.showtime = @event.showtime.to_i
 
     @event.event_show_process(params[:uid]) if @event.budget
 
@@ -32,6 +33,8 @@ class EventsController < ApplicationController
 
     @comment = Comment.new
     @comments = @event.comments.order("created_at desc")
+
+
 
   end
 

@@ -19,6 +19,8 @@
 #= require turbolinks
 #= require ckeditor-jquery
 #= require social-share-button
+#= require jquery.countdown
+
 
 
 
