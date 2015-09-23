@@ -15,6 +15,7 @@
     <span>頁面路徑 /  <%= link_to @event.user.name,host_path(@event.user.id) if @event.user.present? %> / <%=@event.title%> </span>
   </div>
   <div class="page-promotion">
+
     <!-- page poster -->
     <div class="poster-wrapper">
 
@@ -72,9 +73,9 @@
           <li>
 
            <%=link_to "javascript:fbShare('http://alpha.joinfuns.com/events/#{@event.id}?uid=#{current_user.try(:id)}', '#{@event.title}', '#{@event.description}', '#{@event.cover}', 520, 350)",:class=>"option share fb-share-button" do%>
-              <span class="content">分享活動</span>
+              <span class="content">分享活動 </span>
            <%end%>
-
+            <span id="counter"></span>
 <!--             <a href="#" class="option share fb-share-button" data-href="http://localhost:3000"> -->
 <!--
             </a> -->
@@ -105,9 +106,6 @@
             </a>
           </li>
         </ul>
-
-        <span id="counter"></span>
-
       </div>
     </div>
   </div>
@@ -225,7 +223,11 @@ function fbShare(url, title, descr, image, winWidth, winHeight) {
 
 $(document).ready(function() {
 
-  var test = setTimeout(function(){$('.share').hide()},gon.showtime*1000);
+  var test = setTimeout(function(){
+    $('.share').hide();
+    $('#counter').hide();
+  },gon.showtime*1000);
+
   $(function () {
     $('#counter').countdown({until: gon.showtime, format:"S"});
 
