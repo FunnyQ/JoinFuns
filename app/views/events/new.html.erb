@@ -69,12 +69,9 @@
 
       <div class="section-wrapper">
         <div class="drop-section-wrapper">
-          <select>
-            <option value="" disabled selected>活動類別</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
+          <!-- <select> -->
+            <%= select_tag :active_type, options_for_select([[ "所有類別", "0" ],[ "贈獎", "1" ],[ "休閒", "2" ],[ "展覽", "3" ],[ "表演", "4" ],[ "音樂", "5" ],[ "影視", "6" ],[ "夜店", "7" ],[ "學習", "8" ],[ "運動", "9" ],[ "比賽", "10" ],[ "親子", "11" ],[ "校園", "12" ],[ "其他", "13" ]])%>
+          <!-- </select> -->
         </div>
       </div>
       <div class="info-box actived">
@@ -84,10 +81,9 @@
       <div class="info-box">
         <label for="event-title2">主題圖片</label>
         <span>
-          <!-- <input type="text" id="event-title2"> -->
-          <label for="event_<%= :cover %>">上傳圖片
-            <%= f.file_field :cover%>
-          </label>
+            <%= f.label "上傳圖片" , for: "event_cover" , id: "file-btn" %>
+            <%= f.file_field :cover , class: "file"%>
+
           <!-- <a href="" class="select-file">選取檔案</a> -->
         </span>
       </div>
@@ -119,7 +115,7 @@
           <%= f.fields_for :prices do |price| %>
         <!-- <div class="add"><i class="material-icons">add</i></div> -->
         <span class="add-option" >
-          <%= price.text_field :price %>
+          <%= price.text_field :price , placeholder: "輸入價格" %>
         </span>
         <% end %>
 

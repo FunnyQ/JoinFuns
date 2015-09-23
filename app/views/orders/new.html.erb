@@ -1,31 +1,53 @@
+
+<div class="new-event-outter">
+<div class="bk-color">
+<div class="new-event-wrapper">
+<div class="event-info">
+<div class="promo-info">
 <%= form_for @order do |f| %>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+  <div class="info-box">
+    <div class="inner-wrapper">
+    <%= f.label '請輸入姓名' %>
+    <span><%= f.text_field :name %></span>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
+  <div class="info-box">
+    <div class="inner-wrapper">
+        <%= f.label '請輸入E-mail' %>
+      <span><%= f.text_field :email %></span>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </p>
+  <div class="info-box">
+    <div class="inner-wrapper">
+    <%= f.label '請輸入手機' %>
+      <span><%= f.text_field :phone %></span>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </p>
+  <div class="info-box">
+    <div class="inner-wrapper">
+    <%= f.label '請輸入地址' %>
+      <span><%= f.text_field :address %></span>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
-  </p>
+  <div class="info-box">
+    <div class="inner-wrapper">
+    <%= f.label '請輸入儲值金額' %>
+      <span><%= f.text_field :amount %></span>
+    </div>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="section-wrapper">
+
+      <%= f.submit "SUBMIT | 送出資料" , style: "background-color: yellow;color: black" %>
+  </div>
 <% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
