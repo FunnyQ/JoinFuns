@@ -97,6 +97,7 @@
       .price-option
         clear: both
         +clearfix
+        color: $yellow
 
         span
           display: inline-block
@@ -110,6 +111,7 @@
               padding: 0 .5em
               border: 1px solid $silver
               +box-sizing(border-box)
+              text-align: center
               &:focus
                 outline: none
                 +box-shadow(none) //for safari
@@ -197,8 +199,8 @@
             &:hover
               background-color: $yellow
               color: $black
-            input[type="file"]
-              display: none
+          .file
+            visibility: hidden
 
 
 

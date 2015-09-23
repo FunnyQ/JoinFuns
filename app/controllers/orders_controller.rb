@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
       @payment = Payment.create!( :order_id => @order.id,
                                   :payment_method => "Credit" )
-      render :layout => false
+      # render :layout => false
 
   end
 

@@ -1,15 +1,29 @@
+<div class="new-event-outter">
+<div class="bk-color">
+<div class="new-event-wrapper">
+<div class="event-info">
 
 
 
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
+<div class="info-box">
+  <div class="inner-wrapper">
+    <label>Email:</label>
+    <span style="padding-top: 10px;"><%= @order.email %></span>
+  </div>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @order.amount %>
-</p>
+<div class="info-box">
+  <div class="inner-wrapper">
+  <label style="margin-bottom: 5px">Price:</label>
+  <span><%= @order.amount %></span>
+  </div>
+</div>
 
-
+<div class="section-wrapper">
 <%= render_payment_service_button(@order, "credit_card") %>
+</div>
+
+</div>
+</div>
+</div>
+</div>
