@@ -1,10 +1,11 @@
 <%= f.fields_for :photos, Photo.new do |photo| %>
   <div class="file-field input-field">
-    <input class="file-path validate" type="text"/>
     <div class="btn">
       <span>相關圖片</span>
-      <!-- <input type="file" /> -->
       <%= photo.file_field :pic %>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
     </div>
   </div>
 <%end%>
