@@ -71,7 +71,7 @@
           <label for="promo-title7">宣傳預算</label>
           <span>
            <!--  <input type="text" id="promo-title7" placeholder="請輸入您的宣傳預算"> -->
-           <%= f.text_field :budget, :value => 0  %>
+           <%= f.text_field :budget,:class=>"budget_field",:value => 0  %>
           </span>
         </div>
       </div>
@@ -180,7 +180,7 @@ function displayCost() {
 
 function displayTimes(){
 
-  var budget = parseInt($("#event_budget").val());
+  var budget = parseInt($(".budget_field").val());
   var per = parseInt($(".charge span").text());
   $(".remaining span").text(budget/per);
 }
@@ -193,7 +193,7 @@ function onchange(){
 
 $( "input" ).change( onchange );
 
-$( "#event_budget" ).keyup(displayTimes);
+$( ".budget_field" ).keyup(displayTimes);
 
 $("#free-promo").change(function() {
     if(this.checked) {
@@ -201,7 +201,7 @@ $("#free-promo").change(function() {
       $(".border-wrapper").hide();
       $(".select-wrapper").hide();
       $(".content-wrapper").hide();
-      $("#event_budget").val("0");
+      $(".budget_field").val("0");
 
     }
     else{

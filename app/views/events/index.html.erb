@@ -82,7 +82,24 @@
       }
 
 
-
+      function onMarkerClick(marker, event){
+        return function(event){
+          var id = marker.id;
+          $(".notifier-unit").css({border:""});
+          if($("#event-"+id).data( "category" ) == "0"){
+            $("#event-"+id).css({"border-color": "#EF766C",
+                                 "border-width":"2px",
+                                 "border-style":"solid"})
+            $("#event-"+id).prependTo(".dm-notifier-wrapper");
+          }
+          else{
+             $("#event-"+id).css({"border-color": "#FFBF0A",
+                                 "border-width":"2px",
+                                 "border-style":"solid"})
+            $("#event-"+id).prependTo(".dm-notifier-wrapper");
+          }
+        }
+      }
 
     })
 
