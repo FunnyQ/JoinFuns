@@ -13,11 +13,23 @@
 
 
   .page-promotion
+    position: relative
     padding: 20px
     width: 100%
     +box-shadow(0 0 10px $grayish)
     +clearfix
     @extend %border-layout
+    #counter
+      position: absolute
+      top: 0
+      left: 2em
+      background: none
+      border: none
+      .countdown-amount
+        font-size: $fz-s
+        color: white
+      .countdown-period
+        display: none
     .page-title
       @extend %m0auto
       font-size: $fz-xl
@@ -81,11 +93,14 @@
         ul
           +reset-list-style
           +reset-box-model
+          +clearfix
           li
             +reset-box-model
             display: block
             +span(4 of 12)
             padding: 0 5px
+        #counter
+          display: block
 
 
         .share
