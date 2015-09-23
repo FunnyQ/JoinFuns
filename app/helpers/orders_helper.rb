@@ -16,7 +16,7 @@ module OrdersHelper
       service.return_url          notify_order_url(order)
       service.encrypted_data
 
-      submit_tag type_message(type), name: nil
+      submit_tag type_message(type), name: nil ,  style: "background-color: yellow;color: black"
     end
   end
 
@@ -25,7 +25,7 @@ module OrdersHelper
   def type_message(type)
     case type
     when "credit_card"
-      "信用卡付款"
+      "立即付款"
     when "cvs"
       "超商付款"
     when "atm"
