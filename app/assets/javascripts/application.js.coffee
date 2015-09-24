@@ -112,6 +112,7 @@ class JoinFuns.FilterPanel
     @panel.removeClass 'actived'
     @icon.removeClass 'fa-angle-left'
     @icon.addClass 'fa-angle-right'
+    @panel.find('form')[0].reset()
 
   showPanel: ->
     @panel.addClass 'actived'
