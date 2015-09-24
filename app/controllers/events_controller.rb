@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   layout :setting_layout
   impressionist :actions=>[:show]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
 
@@ -25,6 +25,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    authenticate_user! if @event.category == :dm
+
     gon.showtime = @event.showtime.to_i
 
     @event.event_show_process(params[:uid]) if @event.budget
